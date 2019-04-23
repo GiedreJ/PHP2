@@ -1,23 +1,26 @@
 <?php
 
-$kates = rand(1, 3);
-$sunys = rand(1, 3);
+$months = 12;
+$kisene = 1000;
+$alga = 700;
 
-$katasuniai = 0;
 
-for ($k = 1; $k <= $kates; $k++) {
-    for ($s = 1; $s <= $sunys; $s++) {
-        $success = rand(0, 1);
-        
-        if ($success) {
-            $katasuniai++;
-            break;
-        }
-    }
+for ($months = 1; $months <= 12; $months++) {
+   $islaidos = rand(500,900);
+   $balansas = $kisene + $alga - $islaidos;
+   print "balansas $balansas<br>";
+   print "islaidos $islaidos<br>";
+   if ($balansas <=0) {
+       print '"Bloga prognoze: $months gali baiktis pinigai! Atsargiai!<br>"';
+       break;
+   } else {
+       $kisene = $balansas;
+   }
+
+
 }
 
-print "Event`e dalyvavo $kates kates ir $sunys sunys.<br>"
-        . "Katasuniu iseiga: $katasuniai";
+$text = "likutis $kisene";
 ?>
 <!DOCTYPE html>
 <html>
