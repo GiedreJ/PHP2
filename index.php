@@ -1,36 +1,27 @@
 <?php
-    $grikiai_start = 5000;
-    $grikiai = $grikiai_start;
-    $survive_days = 0;
-    $result = "";
 
+$maisto_produktai = [
+    'vienas' => [
+        'baklazanas' => 'mazas',
+        'grietines indelis' => 'didelis',
+    ],
+    'du' => [
+        'kiausiniai' => 'didelis',
+    ]
+];
 
-    for($day = 1; $day < 100; $day++){
-        $sunaudojimas = rand(200,500);
-        if ($grikiai >= 500){
+var_dump($maisto_produktai)
 
-            $grikiai -= $sunaudojimas;
-            $survive_days++;
-            $result .= "Grikiu yra $grikiai per $survive_days dienas." . '<br>';
-        }else{
-            $result .= "Paskutine diena $survive_days" . "grikiu liko $grikiai " . '<br>';
-            break;
-        }
-    }
 
 ?>
-<!DOCTYPE html>
 <html>
-<head>
-    <title></title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div>
-        <?php
-            print $result;
-        ?>
-    </div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Užduotis2</title>
+        <link rel="stylesheet" href="/include/normalise.css">
+        <link rel="stylesheet" href="/include/grid.css">
+        <link rel="stylesheet" href="/include/style.css">
+    </head>
+    <body>
+    </body>
 </html>
