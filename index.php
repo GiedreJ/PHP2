@@ -2,7 +2,6 @@
 $grikiai = 5000;
 $grikiai_start = $grikiai;
 $per_diena = rand(200, 500);
-$survive_days = 0;
 $praejo_dienu = "";
 
 for (; $grikiai >= 500 ;) {
