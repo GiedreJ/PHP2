@@ -1,19 +1,19 @@
 <?php
+$grikiai = 5000;
+$grikiai_start = $grikiai;
+$per_diena = rand(200, 500);
+$survive_days = 0;
+$praejo_dienu = "";
 
-$car_price_new = 30000;
-$car_price = $car_price_new;
-$santaupos = 2000;
-
-for ($months = 1;  $car_price >= $santaupos; $months++) {
-    $car_price -= round($car_price*0.02);
-    print "$months mėnesį mašinos vertė yra $car_price" . '<br>'; 
+for ($day = 1; $grikiai >= 500; $day++) {
+    $grikiai -= rand(200, 500);
+    $praejo_dienu++;
+    print "$day suvalgysiu $grikiai" . '<br>';
 }
 
-$depreciated = 100-( $car_price * 100 / $car_price_new);
-$likutis = $santaupos - $car_price;
-$text = "Po 24 mėnesių, mašios vertė bus $car_price. <br> Nuvertėjo $depreciated procentų.";
-$text1 = "Po $months mėnesių, mašinos vertė bus $car_price." . '<br>' . "Nusipirkus tau dar liks $likutis eur.";
-
+$date = date('Y-M-d', strtotime("+$praejo_dienu days"));
+$text = "Jei turėsiu $grikiai_start g. grikių, valgysiu juos $praejo_dienu dienų."
+         . " Jei pradėsiu šiandien, grikiai baigsis $date data";
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,6 +22,6 @@ $text1 = "Po $months mėnesių, mašinos vertė bus $car_price." . '<br>' . "Nus
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        <p><?php print $text1;?></p>
+        <p><?php print $text;?></p>
     </body>
 </html>
