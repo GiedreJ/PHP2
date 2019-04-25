@@ -10,7 +10,7 @@ for ($months = 1;  $car_price >= $santaupos; $months++) {
 }
 
 $depreciated = 100-( $car_price * 100 / $car_price_new);
-$likutis = $car_price - $santaupos;
+$likutis = $santaupos - $car_price;
 $text = "Po 24 mėnesių, mašios vertė bus $car_price. <br> Nuvertėjo $depreciated procentų.";
 $text1 = "Po $months mėnesių, mašinos vertė bus $car_price." . '<br>' . "Nusipirkus tau dar liks $likutis eur.";
 
