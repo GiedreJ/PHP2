@@ -5,10 +5,10 @@ $per_diena = rand(200, 500);
 $survive_days = 0;
 $praejo_dienu = "";
 
-for ($day = 1; $grikiai >= 500; $day++) {
+for (; $grikiai >= 500 ;) {
     $grikiai -= rand(200, 500);
     $praejo_dienu++;
-    print "$day suvalgysiu $grikiai" . '<br>';
+    print "$praejo_dienu liks $grikiai" . '<br>';
 }
 
 $date = date('Y-M-d', strtotime("+$praejo_dienu days"));
