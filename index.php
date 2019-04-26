@@ -1,34 +1,30 @@
 <?php
 
-$vardas = 'Petras Jonaitis';
-$amzius = 27;
-$statusas = 'dirba'; //studijuoja, dirba, nedirba
+$parkingas = [
+    'bmw' => 'Vytenis', // 1 vieta
+    'toyota' => 'Jonas', // 2 vieta
+    'citroen' => 'Jone', // 3 vieta   
+];
 
-if ($amzius >= 0 && $amzius <18) {
-	echo $vardas . ' yra nepilanametis';
-	echo $vardas . ' netinkamas kariuomenei';
+var_dump($parkingas);
 
-} elseif ($amzius >= 18 && $amzius < 65) {
-	echo $vardas . ' yra pilnametis';
-	
-	if ($amzius <= 26) {
-		if ($statusas == 'dirba' || $statusas == 'nedirba') {
-			echo $vardas . ' Tinkamas kariuomenei';	
-		
-		} elseif($statusas == 'studijuoja') {
-			echo $vardas . ' netinkamas kariuomenei';
-		}
-	} elseif($amzius >= 27) {
-			echo $vardas . ' netinkamas kariuomenei';
-	}
-	
+$parkingo_vietos = array_keys($parkingas);
 
-} elseif($amzius >=65) {
-	echo $vardas . ' yra pensininkas';
-	echo $vardas . ' netinkamas kariuomenei';
-	
-} elseif($amzius < 0) {
-	echo 'Klaida. blogai nurodytas amzius';
-}
+var_dump($parkingo_vietos);
 
-?>
+// opel
+$parkingas_2_vieta = $parkingo_vietos[1];
+
+var_dump("Parkingas 2 vieta: $parkingas_2_vieta");
+
+//$parkingas['opel'] 
+print $parkingas[$parkingas_2_vieta];
+
+           
+//var_dump($array);
+var_dump(array_keys($parkingas));
+
+Collapse
+
+
+
