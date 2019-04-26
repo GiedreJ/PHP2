@@ -1,18 +1,12 @@
 <?php
 
-$maisto_produktai = [
-    'vienas' => [
-        'baklazanas' => 'mazas',
-        'grietines indelis' => 'didelis',
-    ],
-    'du' => [
-        'kiausiniai' => 'didelis',
-    ]
-];
-
-var_dump($maisto_produktai)
-
-
+<?php
+$isviso = 0;
+$array = [20, 30, 69, 56, 95];
+foreach ($array as $value) {
+    $isviso += $value;
+}
+print "visa verte yra $isviso ka ne? ";
 ?>
 <html>
     <head>
