@@ -1,14 +1,4 @@
 <?php
-$draugo_atmintis = [
-    'Penktadienis',
-    'Paskaita',
-    'Alus',
-    'Dar vienas alutis',
-    'Tualetas',
-    'Cigarete',
-    'Alutis',
-    'Sokiai',
-];
 
 $mano_atmintis = [
     'Penktadienis',
@@ -16,32 +6,43 @@ $mano_atmintis = [
     'Baras',
     'Viskis',
     'Alus',
-    'Degtine',
     'Alus',
-    'Cigarete',
+    'Alus',
     'Pirmadienis',
     'Paskaita'
 ];
 
-$bendra_atmintis = [];
+$draugo_atmintis = [
+    'Penktadienis',
+    'Rytas',
+    'Baras',
+    'Viskis',
+    'Alus',
+    'Degtine',
+    'Degtine',
+    'Samagonas',
+    'Antradienis'
+];
 
-$rand_flashback_mano = rand(0, count($mano_atmintis) - 1);
-$flashback_text = '#' . $rand_flashback_mano . ': ' . $mano_atmintis[$rand_flashback_mano];
-$rand_flashback_draugo = rand(0, count($draugo_atmintis) - 1);
-$flashback_text_draugo = '#' . $rand_flashback_draugo . ': ' . $draugo_atmintis[$rand_flashback_draugo];
+$flashback_index = rand(0, count($mano_atmintis) - 1);
+$flashback_num = $flashback_index + 1;
+$flashback_text_mano = "#$flashback_num: {$mano_atmintis[$flashback_index]}";
+$flashback_text_draugo = "#$flashback_num: {$draugo_atmintis[$flashback_index]}";
 
-
+$bendri_atsiminimai = [];
 foreach ($mano_atmintis as $prisiminimas) {
     $egzistuoja = in_array($prisiminimas, $draugo_atmintis);
-    if ($egzistuoja) {
-        $bendra_atmintis[] = $prisiminimas;
+    $dublikuojasi = in_array ($prisiminimas, $bendri_atsiminimai);
+    if ($egzistuoja && !$dublikuojasi) {
+        $bendri_atsiminimai[] = $prisiminimas;
     }
 }
+    
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Klases darbas, 5-tadienis</title>
+        <title>PENKTADIENIS</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
@@ -50,36 +51,33 @@ foreach ($mano_atmintis as $prisiminimas) {
         <h2>Mano atmintis</h2>
         <ul> 
             <!-- foreach -->
-            <?php foreach ($mano_atmintis as $value): ?>
-                <li>
-                    <?php print $value; ?>
-                </li>
-            <?php endforeach; ?>
-            <!-- endforeach -->                
-        </ul>
-
-        <!-- Flashback is random each page refresh -->     
-        <p><?php print $flashback_text; ?></p>
-        <h2>Draugo atmintis</h2>
-        <ul>
-            <!-- foreach -->
-            <?php foreach ($draugo_atmintis as $value): ?>
-                <li>
-                    <?php print $value; ?>
+            <?php foreach ($mano_atmintis as $prisiminimas): ?>
+                <li> 
+                    <?php print $prisiminimas; ?>
                 </li>
             <?php endforeach; ?>
             <!-- endforeach -->
         </ul>
-        <p><?php print $flashback_text_draugo; ?></p>
-
-        <h2>Bendra atmintis</h2>
-        <ul>
+        <h3><?php print $flashback_text_mano; ?></h3>               
+        <h2>Draugo Atmintis</h2>
+        <ul> 
             <!-- foreach -->
-            <?php foreach ($bendra_atmintis as $prisiminimas): ?>
-                <li>
+            <?php foreach ($draugo_atmintis as $prisiminimas): ?>
+                <li> 
                     <?php print $prisiminimas; ?>
                 </li>
             <?php endforeach; ?>
+            <!-- endforeach -->
+        </ul>
+        <h3><?php print $flashback_text_draugo; ?></h3>    
+        <h3>Sutape prisiminimai:</h3>
+        <ul> 
+            <!-- foreach -->
+            <?php foreach ($bendri_atsiminimai as $prisiminimas): ?>
+                <li>
+                    <?php print $prisiminimas; ?>
+                </li>
+            <?php endforeach; ?> 
             <!-- endforeach -->
         </ul>
     </body>
