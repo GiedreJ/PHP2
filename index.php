@@ -1,38 +1,32 @@
 <?php
 
+$atrinkti_zodziai = [];
 $zodziai = [
-    'Petras',
-    'laukė',
-    'ryte',
-    'prie',
-    'Maxima',
+    'jonas', 'dviratis', 'laukas', 'bėga', 'krenta', 'alus',
 ];
 
-$atrinkti_zodiai = [];
-
 foreach ($zodziai as $zodis) {
-    $pateko = rand (0, 1);
+    $pateko = rand(0, 1);
+    
+    //var_dump("tikrinam zodi: $zodis, pateko: $pateko");    
+    
     if ($pateko) {
         $atrinkti_zodziai[] = $zodis;
     }
 }
 
-
-
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Random zodziai</title>
+        <title>Ataskaita</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text_balance/css" href="style.css">
     </head>
     <body>
-        <ul>
-            <?php foreach ($atrinkti_zodziai as $zodis): ?>
-                <li>
-                    <?php print $zodis; ?>
-                </li>
+        <ul> 
+            <?php foreach ($atrinkti_zodziai as $atrinktas_zodis): ?>
+                <li><?php print $atrinktas_zodis; ?></li>
             <?php endforeach; ?>
         </ul>
     </body>
