@@ -1,84 +1,57 @@
 <?php
 
-$mano_atmintis = [
-    'Penktadienis',
-    'Paskaita',
-    'Baras',
-    'Viskis',
-    'Alus',
-    'Alus',
-    'Alus',
-    'Pirmadienis',
-    'Paskaita'
-];
-
-$draugo_atmintis = [
-    'Penktadienis',
-    'Rytas',
-    'Baras',
-    'Viskis',
-    'Alus',
-    'Degtine',
-    'Degtine',
-    'Samagonas',
-    'Antradienis'
-];
-
-$flashback_index = rand(0, count($mano_atmintis) - 1);
-$flashback_num = $flashback_index + 1;
-$flashback_text_mano = "#$flashback_num: {$mano_atmintis[$flashback_index]}";
-$flashback_text_draugo = "#$flashback_num: {$draugo_atmintis[$flashback_index]}";
-
-$bendri_atsiminimai = [];
-foreach ($mano_atmintis as $prisiminimas) {
-    $egzistuoja = in_array($prisiminimas, $draugo_atmintis);
-    $dublikuojasi = in_array ($prisiminimas, $bendri_atsiminimai);
-    if ($egzistuoja && !$dublikuojasi) {
-        $bendri_atsiminimai[] = $prisiminimas;
-    }
-}
-    
+	$dishes = [
+		'nut_salad' => [
+			'name' => 'Nut Salad',
+			'price' => 3.44,
+			'ingredients' => [
+				'Nuts',
+				'Joghurt'
+			]
+		],
+		'bulldish' => [
+			'name' => 'Bulldish',
+			'price' => 4.77,
+			'ingridients' => [
+				'Rice',
+				'Soja sauce'
+			]
+		]
+	];
 ?>
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>PENKTADIENIS</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-        <h1>Kas buvo penktadienį ?!</h1>
-        <h2>Mano atmintis</h2>
-        <ul> 
-            <!-- foreach -->
-            <?php foreach ($mano_atmintis as $prisiminimas): ?>
-                <li> 
-                    <?php print $prisiminimas; ?>
-                </li>
-            <?php endforeach; ?>
-            <!-- endforeach -->
-        </ul>
-        <h3><?php print $flashback_text_mano; ?></h3>               
-        <h2>Draugo Atmintis</h2>
-        <ul> 
-            <!-- foreach -->
-            <?php foreach ($draugo_atmintis as $prisiminimas): ?>
-                <li> 
-                    <?php print $prisiminimas; ?>
-                </li>
-            <?php endforeach; ?>
-            <!-- endforeach -->
-        </ul>
-        <h3><?php print $flashback_text_draugo; ?></h3>    
-        <h3>Sutape prisiminimai:</h3>
-        <ul> 
-            <!-- foreach -->
-            <?php foreach ($bendri_atsiminimai as $prisiminimas): ?>
-                <li>
-                    <?php print $prisiminimas; ?>
-                </li>
-            <?php endforeach; ?> 
-            <!-- endforeach -->
-        </ul>
-    </body>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<ul>
+		<?php foreach ($dishes as $dishes_index =>$dish): ?>
+			<li>
+			<?php print $dishes_index; ?>
+                            <ul>
+				<?php foreach ($dish as $dish_index => $parameters): ?>
+                                    <li>
+					<?php print $dish_index;?>
+                                    <?php if (is_array($parameters)):?>
+                                    <ul>
+                                        <?php foreach ($parameters as $ingri): ?>
+                                        <li>
+                                            <?php print $ingri; ?>
+                                        </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                    <?php else:?>
+                                        <?php print $parameters  . '<br>';?>
+                                    <?php endif; ?>
+                                    </li>
+				<?php endforeach; ?>
+                            </ul>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+</body>
 </html>
