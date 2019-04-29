@@ -1,73 +1,39 @@
 <?php
-$ataskaita = [
-        [
-        'name' => 'IKI Darbo Uzmokestis',
-        'amount' => '600',
-    ],
-        [
-        'name' => 'Kalvariju Nacnykas',
-        'amount' => '-15',
-    ],
-        [
-        'name' => 'Limonas',
-        'amount' => '-120',
-    ],
-        [
-        'name' => 'Vovkos garazas',
-        'amount' => '-340',
-    ],
+
+$zodziai = [
+    'Petras',
+    'laukė',
+    'ryte',
+    'prie',
+    'Maxima',
 ];
 
-$visos_islaidos = 0;
-$visos_iplaukos = 0;
-$balansas = 0;
+$atrinkti_zodiai = [];
 
-foreach ($ataskaita as $index => $irasas) {
-    if ($irasas['amount'] > 0) {
-        $visos_iplaukos += $irasas['amount'];
-        $ataskaita[$index]['css_class'] = 'positive';
-    } else {
-        $visos_islaidos -= $irasas['amount'];
-        $ataskaita[$index]['css_class'] = 'negative';
+foreach ($zodziai as $zodis) {
+    $pateko = rand (0, 1);
+    if ($pateko) {
+        $atrinkti_zodziai[] = $zodis;
     }
-
-    $balansas += $irasas['amount'];
 }
 
-$text_balance = "balansas: $balansas eur.";
-$text_spend = "visos islaidos: $visos_islaidos eur.";
-$text_earn = "visos iplaukos: $visos_iplaukos eur.";
+
 
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Ataskaita</title>
+        <title>Random zodziai</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text_balance/css" href="style.css">
-        <style>
-            .positive {
-                color: green;
-            }
-
-            .negative {
-                color: red;
-            }
-        </style>
     </head>
     <body>
         <ul>
-            <?php foreach ($ataskaita as $irasas): ?>
-                <li class="<?php print $irasas['css_class']; ?>">
-                    <span><?php print $irasas['name']; ?></span>
-                    <span><?php print $irasas['amount']; ?></span>
+            <?php foreach ($atrinkti_zodziai as $zodis): ?>
+                <li>
+                    <?php print $zodis; ?>
                 </li>
             <?php endforeach; ?>
-        </ul>
-        <ul>
-            <li><?php print $text_balance; ?></li>
-            <li><?php print $text_spend; ?></li>
-            <li><?php print $text_earn; ?></li>
         </ul>
     </body>
 </html>
