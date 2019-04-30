@@ -1,53 +1,36 @@
 <?php
 
-$daiktai = [
+$gerimai = [
     [
-        'name' => 'Kremas',
-        'size' => '5',
-        'color' => 'tamsus',
+        'name' => 'Vilkmerges Alus',
+        'kaina' => 4.50,
+        'nuolaida' => 0 //%
     ],
     [   
-        'name' => 'Riešutai',
-        'size' => '10',
-        'color' => 'šviesus',
+        'name' => 'Stumbro Degtinė',
+        'kaina' => 8.50,
+        'nuolaida' => 10 //%
     ],
     [
-        'name' => 'Raktai',
-        'size' => '11',
-        'color' => 'tamsus',   
+        'name' => 'Vynas_raudonas',
+        'kaina' => 6.00,
+        'nuolaida' => 0 //%
     ],
     [
-        'name' => 'Telefonas',
-        'size' => '15',
-        'color' => 'tamsus',
-    ],
-    [
-        'name' => 'Lūpdažis',
-        'size' => '6',
-        'color' => 'šviesus',
-    ],
-    [
-        'name' => 'Vaistai',
-        'size' => '80',
-        'color' => 'tamsus',
-    ],
-    [
-        'name' => 'Kojinės',
-        'size' => '6',
-        'color' => 'šviesus',
+        'name' => 'Vynas_baltas',
+        'kaina' => 7.00,
+        'nuolaida' => 20 //%
     ],
 ];
 
-$random_name = $daiktai[rand(0, count($daiktai) -1)];
-
-$name = $random_name['name'];
-
-$size = $random_name['size'];
-
-$color = $random_name['color'];
-
-$text = "$name užima $size cm3. Daiktas $color."
-
+foreach ($gerimai as $index => $gerimas) {
+    if ($gerimas['nuolaida'] > 0) {
+        $gerimai[$index]['css_class'] = 'su_akcija';
+        $gerimai[$index]['kaina'] *= (100 - $gerimai[$index]['nuolaida']) / 100;
+    } else {
+       $gerimai[$index]['css_class'] = 'be_akcijos';
+    }
+}
 
 ?>
 
@@ -57,11 +40,24 @@ $text = "$name užima $size cm3. Daiktas $color."
 	<title></title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
-    <style></style>
+        <style>
+            .su_akcija {
+                font-size: 20px;
+            };
+            
+            .be_akcijos {
+                font-size: 12px;
+            }
+        </style>
 </head>
 <body>
-    <p>
-        <?php print $text ?>
-    </p>
+    <ul>
+        <?php foreach ($gerimai as $index => $gerimas): ?>
+            <li class="<?php print $gerimas['css_class']; ?>">
+                <span><?php print $gerimas['name']; ?></span>
+                <span><?php print $gerimas['kaina']; ?></span>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 </html>
