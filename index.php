@@ -26,14 +26,14 @@ $gerimai = [
 foreach ($gerimai as $index => $gerimas) {
     if ($gerimas['nuolaida'] > 0) {
         $gerimai[$index]['css_class'] = 'su_akcija';
-        $gerimai[$index]['kaina'] *= (100 - $gerimai[$index]['nuolaida']) / 100;
+        $kaina_su_nuolaida = $gerimai[$index]['kaina'] * (100 - $gerimas['nuolaida']) / 100;
+        $gerimai[$index]['kaina_su_nuolaida'] = $kaina_su_nuolaida;
     } else {
        $gerimai[$index]['css_class'] = 'be_akcijos';
     }
 }
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +43,11 @@ foreach ($gerimai as $index => $gerimas) {
         <style>
             .su_akcija {
                 font-size: 20px;
-            };
+            }
+            
+            .su_akcija .kaina {
+                text-decoration: line-through;
+            }
             
             .be_akcijos {
                 font-size: 12px;
@@ -52,10 +56,13 @@ foreach ($gerimai as $index => $gerimas) {
 </head>
 <body>
     <ul>
-        <?php foreach ($gerimai as $index => $gerimas): ?>
+        <?php foreach ($gerimai as $gerimas): ?>
             <li class="<?php print $gerimas['css_class']; ?>">
                 <span><?php print $gerimas['name']; ?></span>
-                <span><?php print $gerimas['kaina']; ?></span>
+                <?php if (isset ($gerimas['kaina_su_nuolaida'])): ?>
+                <span><?php print $gerimas['kaina_su_nuolaida']; ?></span>
+                <?php endif; ?>
+                <span class="kaina"><?php print $gerimas['kaina']; ?></span>
             </li>
         <?php endforeach; ?>
     </ul>
