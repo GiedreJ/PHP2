@@ -1,31 +1,59 @@
 <?php
-function god() {
-    print 'Vynelis Putojantis';
-}
-
-god();
-
-
-
-function px_to_color($length) {
-    if ($length > 30) {
-        print 'Black';
-    } else {
-        print 'White';
-    }
-}
-
-px_to_color(18.5);
-
-
 /**
- * sumuoja x ir y 
- * @param type $x Pirma verte
- * @param type $y Antra verte
- * @return type integer
+ * @return array 3x3 random array
  */
-function sum($x, $y) {
-    return $x + $y;
+function slot_run()
+{
+    $array = [
+        [rand(0, 1), rand(0, 1), rand(0, 1)],
+        [rand(0, 1), rand(0, 1), rand(0, 1)],
+        [rand(0, 1), rand(0, 1), rand(0, 1)]
+    ];
+    return $array;
 }
-$suma = sum(10, 20);
-print sum(10, 20);
+
+$array1 = slot_run();
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Kvadrateliai</title>
+    <style>
+        div {
+        border: 3px solid black;
+        padding: 10px;
+        margin: 10px;
+}
+
+section {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+}
+
+.blue {
+        background-color: blue;
+}
+
+.orange {
+        background-color: orange;
+}
+    </style>
+</head>
+<body>
+<?php foreach ($array1 as $index): ?>
+    <section>
+        <?php foreach ($index as $value): ?>
+            <?php if ($value > 0): ?>
+                <div class="blue"></div>
+            <?php else: ?>
+                <div class="orange"></div>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </section>
+<?php endforeach; ?>
+</body>
+</html>
