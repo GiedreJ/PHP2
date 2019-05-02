@@ -21,27 +21,7 @@ $array1 = slot_run();
 <head>
     <meta charset="UTF-8">
     <title>Kvadrateliai</title>
-    <style>
-        div {
-        border: 3px solid black;
-        padding: 10px;
-        margin: 10px;
-}
-
-section {
-        display: flex;
-        justify-content: center;
-        align-items: baseline;
-}
-
-.blue {
-        background-color: blue;
-}
-
-.orange {
-        background-color: orange;
-}
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <?php foreach ($array1 as $index): ?>
