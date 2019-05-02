@@ -1,38 +1,31 @@
 <?php
+function god() {
+    print 'Vynelis Putojantis';
+}
 
-$gerimai = [
-    [
-        'name' => 'Vilkmerges alus',
-        'kaina' => 4.50,
-        'nuolaida' => 0
-    ],
-    [
-        'name' => 'Stumbro degtine',
-        'kaina' => 8.50,
-        'nuolaida' => 10
-    ],
-    [
-        'name' => 'Svyturio alus',
-        'kaina' => 3.50,
-        'nuolaida' => 15
-    ],
-    [
-        'name' => 'Zemaitijos pienas',
-        'kaina' => 1.50,
-        'nuolaida' => 30
-    ],
-];
+god();
 
-foreach ($gerimai as $index => &$gerimas) {
-    //$gerimai[$index]['css_class'] = 'dfkasdf';
-    
-    if ($gerimas['nuolaida'] > 0) {
-        $gerimas['css_class'] = 'big_font';
+
+
+function px_to_color($length) {
+    if ($length > 30) {
+        print 'Black';
     } else {
-        $gerimas['css_class'] = 'small_font';
+        print 'White';
     }
 }
 
-unset($gerimas);
+px_to_color(18.5);
 
-var_dump($gerimai);
+
+/**
+ * sumuoja x ir y 
+ * @param type $x Pirma verte
+ * @param type $y Antra verte
+ * @return type integer
+ */
+function sum($x, $y) {
+    return $x + $y;
+}
+$suma = sum(10, 20);
+print sum(10, 20);
