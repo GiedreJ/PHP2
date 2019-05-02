@@ -1,18 +1,18 @@
 <?php
 
-       
-function slot_run()
-{
-    $array = [
-        [rand(0, 1), rand(0, 1), rand(0, 1), rand(0, 1), rand(0, 1)],
-        [rand(0, 1), rand(0, 1), rand(0, 1), rand(0, 1), rand(0, 1)],
-        [rand(0, 1), rand(0, 1), rand(0, 1), rand(0, 1), rand(0, 1)],
-        [rand(0, 1), rand(0, 1), rand(0, 1), rand(0, 1), rand(0, 1)],
-        [rand(0, 1), rand(0, 1), rand(0, 1), rand(0, 1), rand(0, 1)]
-    ];
+function slot_run() {
+    $array = [];
+    for ($a = 1; $a <= 5; $a++) {
+        $row = [];
+        for ($b = 1; $b <= 5; $b++) {
+            $row[] = rand(0, 1);
+        }
+        $array[] = $row;
+    } 
     return $array;
 }
-$array1 = slot_run();
+
+var_dump(slot_run());
 ?>
 
 <!DOCTYPE html>
