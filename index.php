@@ -43,7 +43,12 @@ $array = slot_run($size);
 $winning_rows = winning_slot($array);
 var_dump($winning_rows);
 
-
+$winning = count($winning_rows);
+if ($winning >0) {
+    $text = "Tau iškrito $winning. Tu - laimėjai!";
+} else {
+    $text = 'Tau akljdksjd!';
+}
 
 ?>
 
@@ -80,6 +85,7 @@ var_dump($winning_rows);
     </style>
 </head>
 <body>
+    <p><?php print $text; ?></p>
     <?php foreach ($array as $index): ?>
     <section>
         <?php foreach ($index as $value): ?>
