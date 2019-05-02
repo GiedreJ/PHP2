@@ -1,10 +1,10 @@
 <?php
 
-function slot_run() {
+function slot_run($x) {
     $array = [];
-    for ($a = 1; $a <= 5; $a++) {
+    for ($a = 0; $a < $x; $a++) {
         $row = [];
-        for ($b = 1; $b <= 5; $b++) {
+        for ($b = 0; $b < $x; $b++) {
             $row[] = rand(0, 1);
         }
         $array[] = $row;
@@ -12,7 +12,7 @@ function slot_run() {
     return $array;
 }
 
-var_dump(slot_run());
+var_dump(slot_run(5));
 ?>
 
 <!DOCTYPE html>
