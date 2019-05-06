@@ -1,22 +1,15 @@
 <?php
 
-function suma($a, $b, $c) {
-    return $a + $b + $c;
-}
-
-print suma(5, 2, 1);
-
-function lyginisNelyginis($skaicius) {
-    if ($skaicius % 2 ==0) {
-        print 'lyginis';
-    } else {
-        print 'nelyginis';
+function Vynas_alus($gender, $age){
+    if($age >= 20) {
+        if ($gender == 'male') {
+            print 'Alus';
+        } else {
+            print 'Vynas';
+        }
     }
-}
-lyginisNelyginis(15);
-lyginisNelyginis(2);
-lyginisNelyginis(8);
+};
 
+Vynas_alus('female', 20)
 
-
-?>
+?> 
