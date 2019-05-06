@@ -6,19 +6,31 @@ function suma($a, $b, $c) {
 
 print suma(5, 2, 1);
 
+function duok($arrayKey, $colorKey){
 
-$array = [
+    $array = [
         'labas',
         'krabas',
         'matas',
     ];
 
-$color = [
+    $color = [
         'melyna',
         'raudona',
         'ruda',
     ];
-    
-print "$array[2] $color[0]";
 
+    foreach ($array as $key => $value){
+        $tekstas =  $array[$arrayKey];
+    }
+
+    foreach ($color as $key => $value){
+        $spalva =  $color[$colorKey];
+    }
+    return $tekstas . ' ' . $spalva;
+}
+
+print duok(1,1);
+
+?>
 ?>
