@@ -6,31 +6,17 @@ function suma($a, $b, $c) {
 
 print suma(5, 2, 1);
 
-function duok($arrayKey, $colorKey){
-
-    $array = [
-        'labas',
-        'krabas',
-        'matas',
-    ];
-
-    $color = [
-        'melyna',
-        'raudona',
-        'ruda',
-    ];
-
-    foreach ($array as $key => $value){
-        $tekstas =  $array[$arrayKey];
+function lyginisNelyginis($skaicius) {
+    if ($skaicius % 2 ==0) {
+        print 'lyginis';
+    } else {
+        print 'nelyginis';
     }
-
-    foreach ($color as $key => $value){
-        $spalva =  $color[$colorKey];
-    }
-    return $tekstas . ' ' . $spalva;
 }
+lyginisNelyginis(15);
+lyginisNelyginis(2);
+lyginisNelyginis(8);
 
-print duok(1,1);
 
-?>
+
 ?>
