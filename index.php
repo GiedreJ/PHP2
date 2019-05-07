@@ -1,41 +1,13 @@
 <?php
 
-$a = 'a';
-$b = &$a;
-$b = 'b';
+$x = 0;
 
-print $a;
-print $b;
-
-$array = ['a', 'b'];
-
-foreach ($array as &$value) {
-    $value = 'c';
+function change_x(&$x) {
+    $x = 1;
 };
 
-var_dump ($array);
-print $value;
-
-/** nauja funkcija */
-$x = 2;
-
-function rape_x(&$x) {
-    $x = 3;
-}
-
-rape_x($x);
+change_x($x);
 print $x;
-
-/** nauja funkcija */
-$a = 10;
-
-function rape_x1(&$x) {
-    $x = 5;
-}
-
-rape_x1($a);
-print $a;
-
 
 ?>
 <!DOCTYPE html>
