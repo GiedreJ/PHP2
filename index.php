@@ -1,26 +1,20 @@
 <?php
 
 $x = 0;
-
-function change_x(&$x) {
-    $x = 1;
-};
-
-change_x($x);
+$b = &$x;
+unset ($b);
 print $x;
 
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>termometras</title>
+        <title></title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <style>
-           
+        <style>   
         </style>        
     </head>
-    <body>
-        
+    <body>    
     </body>
 </html>
