@@ -1,15 +1,22 @@
 <?php
 
-$roll_joints = true;
 
-$joint1 = &$roll_joints;
-$joint2 = &$joint1;
-$joint3 = &$joint2;
+$sheep = ['miau'];
 
-print $joint1;
-print $joint2;
-print $joint3;
+for ($x = 0; $x < 5; $x++){
+    $sheep[] = &$sheep[$x];
+}
 
+var_dump($sheep);
+
+foreach ($sheep as $key => $value) {
+    unset($sheep[$key]);
+    $sheep[$key] = $value;
+}
+
+$sheep[3] = 'aaaa';
+
+var_dump($sheep[3]);
 ?>
 <!DOCTYPE html>
 <html>
