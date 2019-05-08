@@ -1,22 +1,20 @@
 <?php
 
+$array = ['b', 'x', 'x', 'b', 's'];
 
-$sheep = ['miau'];
-
-for ($x = 0; $x < 5; $x++){
-    $sheep[] = &$sheep[$x];
+function count_values($array, $val) {
+    $atrinktieji = 0;
+    
+    foreach ($array as $value) {
+        if ($value == $val) {
+            $atrinktieji++;
+        }
+    }
+    return $atrinktieji;
 }
 
-var_dump($sheep);
+print count_values($array, 'x');
 
-foreach ($sheep as $key => $value) {
-    unset($sheep[$key]);
-    $sheep[$key] = $value;
-}
-
-$sheep[3] = 'aaaa';
-
-var_dump($sheep[3]);
 ?>
 <!DOCTYPE html>
 <html>
