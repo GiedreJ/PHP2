@@ -13,7 +13,21 @@ function count_values($array, $val) {
     return $atrinktieji;
 }
 
-print count_values($array, 'x');
+print count_values($array, 's');
+
+
+function change_values(&$array, $val_from, $val_to) {
+    
+   foreach ($array as &$value) {
+       if ($value == $val_from) {
+         $value = $val_to;
+   }
+}
+}
+
+change_values($array, 'x', 'y');
+var_dump($array);
+
 
 ?>
 <!DOCTYPE html>
