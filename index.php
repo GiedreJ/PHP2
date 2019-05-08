@@ -1,8 +1,9 @@
 <?php
+
 $skaicius = 1;
 
 if (isset($_POST['action'])) {
-    $skaicius = $_POST['action'] +1;
+    $skaicius += $_POST['action'];
 }
 
 ?>
