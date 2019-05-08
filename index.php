@@ -1,34 +1,16 @@
 <?php
 
-$array = ['b', 'x', 'x', 'b', 's'];
-
-function count_values($array, $val) {
-    $atrinktieji = 0;
-    
-    foreach ($array as $value) {
-        if ($value == $val) {
-            $atrinktieji++;
-        }
-    }
-    return $atrinktieji;
+function square($x) {
+    return $x**2;
 }
 
-print count_values($array, 's');
-
-
-function change_values(&$array, $val_from, $val_to) {
-    
-   foreach ($array as &$value) {
-       if ($value == $val_from) {
-         $value = $val_to;
-   }
-}
+if (isset($_POST['enter']) && !empty($_POST['kvadratu'])) {
+    $atsakymas = 'Atsakymas:' . square($_POST['kvadratu']);
+}   else {
+    $atsakymas = 'Įveskite skaičių';   
 }
 
-change_values($array, 'x', 'y');
-var_dump($array);
-
-
+var_dump($_POST);
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,6 +21,15 @@ var_dump($array);
         <style>   
         </style>        
     </head>
-    <body>    
+    <body>
+        <form method="POST">
+            <label>
+            <span>Ką pakelti kvadratu:</span> 
+            <input name="kvadratu" type="number"/>
+            </label>
+            <input name="enter" type="submit"/>
+            <input type="reset"/>
+        </form>
+        <p><?php print $atsakymas; ?></p>
     </body>
 </html>
