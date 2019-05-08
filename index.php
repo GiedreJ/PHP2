@@ -1,35 +1,42 @@
 <?php
 
+/**
+ * Kintamojo kelimas kvadratu
+ * @param integer $x
+ * @return integer
+ */
 function square($x) {
-    return $x**2;
+    return $x ** 2;
 }
 
-if (isset($_POST['enter']) && !empty($_POST['kvadratu'])) {
-    $atsakymas = 'Atsakymas:' . square($_POST['kvadratu']);
-}   else {
-    $atsakymas = 'Įveskite skaičių';   
+// Sąlyga inputo langui.
+if (!empty($_POST)) {
+    if ($_POST['action'] == 'pakelti') {
+        $message = 'Atsakymas: ' . square($_POST['skaicius']);
+    } elseif(($_POST['action'] == 'saknis')) {
+        $message = 'Atsakymas: ' . sqrt($_POST['skaicius']);
+    }
+} else {
+    $message = 'Įvesk skaičių!';
 }
 
-var_dump($_POST);
 ?>
-<!DOCTYPE html>
 <html>
     <head>
-        <title></title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <style>   
-        </style>        
+        <meta charset="UTF-8">
+        <title>Form Basics</title>
     </head>
     <body>
         <form method="POST">
             <label>
-            <span>Ką pakelti kvadratu:</span> 
-            <input name="kvadratu" type="number"/>
+                <span> Ką pakelti kvadratu:</span>
+                <input type="number" name="skaicius">
             </label>
-            <input name="enter" type="submit"/>
-            <input type="reset"/>
+            
+            <button name="action" value="pakelti">Bandom kvadarata!</button>      
+            <button name="action" value="saknis">Bandom sakni!</button>      
+            <input type="reset">
         </form>
-        <p><?php print $atsakymas; ?></p>
+        <p><?php print $message; ?></p>
     </body>
 </html>
