@@ -1,30 +1,35 @@
 <?php
 
-$result = 0;
+$vardas = '';
+$pavarde = '';
+$amzius = '';
+$lygis = '';
 
-if (isset($_POST['done'])) {
-    $result = ++$_POST['done'];
-}
-
-$images = [];
-
-for ($i = 0; $i < $result; $i++) {
-    $images[$i] = 'banana.jpg';
+if (!empty($_POST['vardas']) && !empty($_POST['pavarde'])) {
+    $vardas = $_POST['vardas'];
+    $pavarde = $_POST['pavarde'];
+    $amzius = $_POST['amzius'];
+    $lygis = $_POST['lygis'];
 }
 
 ?>
-<!DOCTYPE html> 
-<html> 
-    <head> 
-        <title>Bananas</title> 
-        <meta charset="utf-8"> 
-    </head> 
-    <body>
-        <form method="post">
-            <input type="submit" name="done" value="<?php print $result ?>">
-        </form>
-        <?php foreach ($images as $i): ?>
-            <img src="<?php print $i; ?>">
-        <?php endforeach; ?>
-    </body> 
-</html> 
+<html>
+<head></head>
+<body>
+<form method="post">
+    <input type="text" name="vardas" placeholder="vardas" required>
+    <input type="text" name="pavarde" placeholder="pavarde" required>
+    <input type="number" name="amzius" placeholder="amzius" min="18" max="99">
+    <select name="lygis">
+        <option value="pazenges" name="pazenges">pazenges</option>
+        <option value="profesionalas" name="profesionalas">profesionalas</option>
+        <option value="pradedantysis" name="pradedantysis" selected>pradedantysis</option>
+    </select>
+    <button name="button" value="push">Siusti</button>
+</form>
+<h1>Vardas: <?php print $vardas; ?></h1>
+<h1>Pavarde: <?php print $pavarde; ?></h1>
+<h1>Amzius: <?php print $amzius; ?></h1>
+<h1>Lygis: <?php print $lygis?></h1>
+</body>
+</html>
