@@ -1,35 +1,22 @@
 <?php
 
-$vardas = '';
-$pavarde = '';
-$amzius = '';
-$lygis = '';
+$hack = filter_input_array(INPUT_POST, [
+    'hack_me' => FILTER_SANITIZE_SPECIAL_CHARS,
+]);
 
-if (!empty($_POST['vardas']) && !empty($_POST['pavarde'])) {
-    $vardas = $_POST['vardas'];
-    $pavarde = $_POST['pavarde'];
-    $amzius = $_POST['amzius'];
-    $lygis = $_POST['lygis'];
-}
-
+/**
+ * <style>form {display: none;}</style>
+    <!--
+ */
+var_dump($hack);
+$input = $hack['hack_me'];
 ?>
 <html>
-<head></head>
-<body>
-<form method="post">
-    <input type="text" name="vardas" placeholder="vardas" required>
-    <input type="text" name="pavarde" placeholder="pavarde" required>
-    <input type="number" name="amzius" placeholder="amzius" min="18" max="99">
-    <select name="lygis">
-        <option value="pazenges" name="pazenges">pazenges</option>
-        <option value="profesionalas" name="profesionalas">profesionalas</option>
-        <option value="pradedantysis" name="pradedantysis" selected>pradedantysis</option>
-    </select>
-    <button name="button" value="push">Siusti</button>
-</form>
-<h1>Vardas: <?php print $vardas; ?></h1>
-<h1>Pavarde: <?php print $pavarde; ?></h1>
-<h1>Amzius: <?php print $amzius; ?></h1>
-<h1>Lygis: <?php print $lygis?></h1>
-</body>
+    <body>
+        <h1><?php print $input; ?></h1>
+        <form method="post">
+            <input type="text" name="hack_me" placeholder="Hack Me" required>
+            <button name="button" value="push">Try</button>
+        </form>
+    </body>
 </html>
